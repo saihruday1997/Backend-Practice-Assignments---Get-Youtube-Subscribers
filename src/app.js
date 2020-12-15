@@ -6,8 +6,10 @@ const data = require("./data");
 
 // Your code goes here
 
+let Subscriber = mongoose.model("subscriber" , data);
+
 app.get("/subscribers" , (req , res) => {
-    res.json(data);
+    Subscriber.find().then(sub => res.send(sub));
 });
 
 
