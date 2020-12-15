@@ -9,7 +9,7 @@ const data = require("./data");
 let Subscriber = mongoose.model("subscriber" , data);
 
 app.get("/subscribers" , (req , res) => {
-    Subscriber.find().then(sub => res.send(sub));
+    Subscriber.find().then((sub) => res.send(sub));
 });
 
 
