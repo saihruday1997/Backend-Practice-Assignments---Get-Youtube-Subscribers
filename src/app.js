@@ -11,7 +11,14 @@ app.get("/subscribers" , (req , res) => {
 });
 
 app.get("/subscribers/names" , (req , res) => {
+    Subscriber.find().then((sub) => {
+        let obj = {
+            name: sub.name,
+            subscibedChannel: sub.subscibedChannel
+        }
 
+        res.send(obj);
+    });
 });
 
 app.get("/subscribers/:id", (req , res) => {
