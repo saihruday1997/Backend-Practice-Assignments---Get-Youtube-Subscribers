@@ -11,7 +11,7 @@ app.get("/subscribers" , (req , res) => {
 });
 
 app.get("/subscribers/names" , (req , res) => {
-    Subscriber.find().then((sub) => res.send({name: sub.name, subscribedChannel: sub.subscribedChannel}));
+    Subscriber.find().select("name subscribedChannel").then((sub) => res.send(sub));
 });
 
 app.get("/subscribers/:id", (req , res) => {
