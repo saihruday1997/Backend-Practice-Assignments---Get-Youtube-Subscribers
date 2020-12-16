@@ -17,7 +17,7 @@ app.get("/subscribers/names" , (req , res) => {
 app.get("/subscribers/:id", (req , res) => {
     let id = req.params.id;
 
-    Subscriber.find({_id : id})
+    Subscriber.findById(id)
         .then((sub) => res.send(sub))
         .catch((err) => res.status(400).send({message: err.message}));
 });
